@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\kassy\\Documents\\GitHub\\GameEnginesAndLogic2FP\\GameEnginesAndLogicApp\\Temp\\gradleOut\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\kassy\\Documents\\GitHub\\GameEnginesAndLogic2FP\\GameEnginesAndLogicApp\\Temp\\gradleOut\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "5,2,7",
+                        "startColumns": "0,0,0",
+                        "startOffsets": "190,53,288",
+                        "endLines": "6,4,10",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "286,188,513"
+                    },
+                    "to": {
+                        "startLines": "4,6,9",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "175,275,413",
+                        "endLines": "5,8,12",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "270,408,635"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\kassy\\Documents\\GitHub\\GameEnginesAndLogic2FP\\GameEnginesAndLogicApp\\Temp\\gradleOut\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "55,106",
+                        "endColumns": "49,65",
+                        "endOffsets": "102,169"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,107",
+                        "endColumns": "51,67",
+                        "endOffsets": "102,170"
+                    }
+                }
+            ]
+        }
+    ]
+}
