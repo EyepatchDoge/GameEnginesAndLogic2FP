@@ -12,11 +12,13 @@ public class AbilityPurchases : MonoBehaviour
     public InGameCurrencySO spaceMoney;
     public AbilityManager aManager;
     
-    public void BuyAbility(int cost, GameObject prefab)
+    public void BuyAbility(AbilitySO SO)
     {
-        if(spaceMoney.currencyAmount >= cost)
+        if(spaceMoney.currencyAmount >= SO.cost)
         {
-            aManager.UpdateDictonary(prefab.GetComponent<IAbility>());
+            aManager.UpdateDictonary(SO, true);
+
+            spaceMoney.currencyAmount -= SO.cost;
         }
     }
 }

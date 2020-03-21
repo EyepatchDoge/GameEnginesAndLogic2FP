@@ -7,13 +7,16 @@ using UnityEngine;
 /// This is so the puchasing script does not get filled with to many unessecary scripts 
 /// </summary>
 /// 
+
+
+
 public class AbilityManager : MonoBehaviour
 {
     public TestItem testI;
 
-    public Dictionary<IAbility, bool> abilityDictionary = new Dictionary<IAbility, bool>();
+    public Dictionary<AbilitySO, bool> abilityDictionary = new Dictionary<AbilitySO, bool>();
 
-    public List<GameObject> abilityPrefabs;
+    public List<AbilitySO> abilitySOs;
 
 
     private void Awake()
@@ -23,9 +26,9 @@ public class AbilityManager : MonoBehaviour
 
     private void InitializeDictionary()
     {
-        for (int i = 0; i < abilityPrefabs.Count; i++)
+        for (int i = 0; i < abilitySOs.Count; i++)
         {
-            IAbility variable = abilityPrefabs[i].GetComponent<IAbility>();
+            AbilitySO variable = abilitySOs[i];
 
             if (!abilityDictionary.ContainsKey(variable))
             {
@@ -35,13 +38,28 @@ public class AbilityManager : MonoBehaviour
     }
 
 
-    public void UpdateDictonary(IAbility ability)
+    public void UpdateDictonary(AbilitySO ability, bool value)
     {
-        abilityDictionary[ability] = true;
+        abilityDictionary[ability] = value;
     }
 
     public void TestItemAbility()
     {
         testI.PlayCelebrationClip();
+    }
+
+
+    [ContextMenu("Apply Abilities")]
+    public void ApplyAbilities()
+    {
+        foreach (var ability in abilityDictionary)
+        {
+            if(ability.Value == true)
+            {
+                GameObject go = Instantiate(ability.Key.scriptPrefab);
+                go.GetComponent<IAbility>().UseAbility();
+                UpdateDictonary(ability.Key, false);
+            }
+        }
     }
 }

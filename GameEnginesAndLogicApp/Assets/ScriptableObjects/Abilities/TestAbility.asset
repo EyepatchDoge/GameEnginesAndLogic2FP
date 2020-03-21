@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f9014292940824b9350898f859186a, type: 3}
-  m_Name: SpaceCoins
+  m_Script: {fileID: 11500000, guid: 76734d607100db54e9442cc3fed70583, type: 3}
+  m_Name: TestAbility
   m_EditorClassIdentifier: 
-  currencyName: SpaceCoins
-  currency: {fileID: 0}
-  currencyAmount: 10
+  cost: 10
+  scriptPrefab: {fileID: 1096299237606969401, guid: 316300b84f92174479aa9a0491d830c3,
+    type: 3}
