@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Paul_Scene.unity
+    guid: c5924a8831f8e684a9fc378c86b7ae92
+  - enabled: 1
     path: Assets/Scenes/GoogleStore_Scene.unity
     guid: a8ca7a652bd82124ab44a16a596af93d
   m_configObjects: {}

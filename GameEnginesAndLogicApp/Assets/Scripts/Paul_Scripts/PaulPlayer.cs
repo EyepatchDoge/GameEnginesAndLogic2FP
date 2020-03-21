@@ -22,33 +22,37 @@ public class PaulPlayer : MonoBehaviour
     {
         Collider2D isGrounded = Physics2D.OverlapCircle(gDeteque.position, gDradious, groundDec);
         anime.SetBool("Grounded", isGrounded);
-        if (Input.touchCount > 0)
+        if(playerIsDed == false)
         {
-            Touch myTouch = Input.GetTouch(0);
-            Ray ray = Camera.main.ScreenPointToRay(myTouch.position);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Input.touchCount > 0)
             {
-                // moves the player up when pressing the screen
+                Touch myTouch = Input.GetTouch(0);
+                Ray ray = Camera.main.ScreenPointToRay(myTouch.position);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    // moves the player up when pressing the screen
+                    rb.velocity = Vector2.up * flyVel;
+                    anime.SetBool("Flying", true);
+                }
+                else
+                {
+                    anime.SetBool("Flying", false);
+                }
+
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
                 rb.velocity = Vector2.up * flyVel;
                 anime.SetBool("Flying", true);
+                //rb.gravityScale *= -1;
             }
             else
             {
                 anime.SetBool("Flying", false);
             }
-
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.velocity = Vector2.up * flyVel;
-            anime.SetBool("Flying", true);
-            //rb.gravityScale *= -1;
-        }
-        else
-        {
-            anime.SetBool("Flying", false);
-        }
+        
         
         
     }
@@ -59,11 +63,12 @@ public class PaulPlayer : MonoBehaviour
         Gizmos.DrawWireSphere(gDeteque.position, gDradious);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Asteroid")
         {
             PlayerDead();
+            Destroy(collision.gameObject);
         }
     }
 
@@ -71,10 +76,17 @@ public class PaulPlayer : MonoBehaviour
     {
         anime.SetTrigger("Ded");
         playerIsDed = true;
+        GameManager.instance.playDed = true;
     }
 
     public void BackToPlay()
     {
         anime.SetTrigger("Replay");
+        playerIsDed = false;
+        GameManager.instance.playDed = false;
     }
+    //public void MightAsWellJump()
+    //{
+
+    //}
 }
