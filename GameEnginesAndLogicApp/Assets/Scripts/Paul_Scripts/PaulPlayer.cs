@@ -9,7 +9,7 @@ public class PaulPlayer : MonoBehaviour
     public LayerMask groundDec;
     public float gDradious, flyVel;
     public Transform gDeteque;
-    public bool playerIsDed;
+    public bool playerIsDed, Jump;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class PaulPlayer : MonoBehaviour
                 }
 
             }
-            if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A))
             {
                 rb.velocity = Vector2.up * flyVel;
                 anime.SetBool("Flying", true);
@@ -70,6 +70,11 @@ public class PaulPlayer : MonoBehaviour
             PlayerDead();
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "Coin")
+        {
+            GameManager.instance.Points++;
+            Destroy(collision.gameObject);
+        }
     }
 
     public void PlayerDead()
@@ -87,6 +92,7 @@ public class PaulPlayer : MonoBehaviour
     }
     //public void MightAsWellJump()
     //{
-
+    //    rb.velocity = Vector2.up * flyVel;
+    //    anime.SetBool("Flying", true);
     //}
 }
