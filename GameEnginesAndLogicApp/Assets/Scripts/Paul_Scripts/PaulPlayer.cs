@@ -85,4 +85,8 @@ public class PaulPlayer : MonoBehaviour
         playerIsDed = false;
         GameManager.instance.playDed = false;
     }
+    //public void MightAsWellJump()
+    //{
+
+    //}
 }
